@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= params["title"] %> - Show</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <div id="main">
+    <div id="header">
+      <h1><%= params["title"] %> Show</h1>
+    </div>
+    <div id="content">
+      <div>
+        <h2>ID</h2>
+        <p><%= cms.id %></p>
+      </div>
+      <div>
+        <h2>TITLE</h2>
+        <p><%= cms.title %></p>
+      </div>
+      <div>
+        <h2>CONTENT</h2>
+        <p><%= cms.content %></p>
+      </div>
+    </div><!-- /div#content -->
+  </div><!-- /div#main -->
+</body>
+</html>

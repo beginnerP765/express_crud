@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title><%= params["title"] %></title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <div id="main">
+    <div id="header">
+      <h1><%= params["title"] %> Edit</h1>
+    </div>
+    <div id="content">
+      <form method="post" action="/cms/edit">
+        <input type="hidden" name="id" value="<%= cms.id %>">
+        <dl>
+          <dt>TITLE</dt>
+          <dd>
+            <input type="text" name="title" id="title" value="<%= cms.title %>">
+          </dd>
+          <div class="error-box">
+            <% if(typeof errors !== 'undefined') { %>
+              <% for(let error of errors){ %>
+                <% if(error.path == "title"){ %>
+                  <p><%= error.msg %></p>
+                <% } %>
+              <% } %>
+            <% } %>
+          </div>
+        </dl>
+        <dl>
+          <dt>CONTENT</dt>
+          <dd>
+            <textarea name="content" id="content" rows="30" cols="80"><%= cms.content %></textarea>
+          </dd>
+          <div class="error-box">
+            <% if(typeof errors !== 'undefined') { %>
+              <% for(let error of errors){ %>
+                <% if(error.path == "content"){ %>
+                  <p><%= error.msg %></p>
+                <% } %>
+              <% } %>
+            <% } %>
+          </div>
+        </dl>
+        <p><input type="submit" value="作成"></p>
+      </form>
+    </div><!-- /div#content -->
+  </div><!-- /div#main -->
+</body>
+</html>

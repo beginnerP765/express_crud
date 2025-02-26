@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title><%= params["title"] %> - Delete</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <script>
+    function CheckDelete(){
+      if(confirm('削除しますか？')){ 
+        return true; 
+      }else{
+        alert('キャンセルされました'); 
+        return false; 
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="main">
+    <div id="header">
+      <h1><%= params["title"] %> Delete</h1>
+    </div>
+    <div id="content">
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>TITLE</th>
+          <th>CONTENT</th>
+        </tr>
+        <tr>
+          <td><%= cms.id %></td>
+          <td><%= cms.title %></td>
+          <td><%= cms.content %></td>
+        </tr>
+      </table>
+      <form action="/cms/delete" method="post" onSubmit="return CheckDelete()">
+        <input type="hidden" name="id" value="<%= cms.id %>">
+        <p><input type="submit" value="削除"></p>
+      </form>
+    </div><!-- /div#content -->
+  </div><!-- /div#main   -->
+</body>
+</html>

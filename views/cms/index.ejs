@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title><%= params["title"] %></title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <div id="main">
+    <div id="header">
+      <h1><%= params["title"] %> Index</h1>
+    </div>
+    <div id="content">
+      <ul>
+        <li><a href="/cms/add">作成</a></li>
+      </ul>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>TITLE</th>
+          <th>CONTENT</th>
+        </tr>
+        <% for(let i in cms){ %>
+          <% let obj = cms[i]; %>
+          <tr>
+            <td><%= obj.id %></td>
+            <td><%= obj.title %></td>
+            <td><%= obj.content %></td>
+            <td>
+              <a href="/cms/show/<%= obj.id %>">show</a>
+              <a href="/cms/edit/<%= obj.id %>">edit</a>
+              <a href="/cms/delete/<%= obj.id %>">delete</a>
+            </td>
+          </tr>
+        <% } %>
+      </table>
+    </div><!-- /div#content -->
+  </div><!-- /div#main -->
+</body>
+</html>
