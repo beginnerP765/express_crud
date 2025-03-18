@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 (async () => {
   const pool  = await mysql.createConnection({
     host: 'localhost',
-    user: 'root',
+    user: 'dbuser',
     password: 'password',
   });
 
